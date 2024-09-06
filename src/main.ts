@@ -86,10 +86,94 @@ const guitaristTwo: Guitarist = {
 }
 
 const greetGuitarist = (guitarist: Guitarist) => {
-    if(guitarist.name){
+    if (guitarist.name) {
         return `Hello ${guitarist.name.toUpperCase()} `
     }
     return 'Hello'
 }
 
 console.log(greetGuitarist(guitaristOne))
+
+enum Grade {
+    U = 1,
+    D,
+    C,
+    B,
+    A
+}
+console.log(Grade.U)
+console.log(Grade.A)
+
+// type Aliases
+type StringOrNumber = string | number
+type StringOrNumberArray = (string | number)[]
+
+type Fotballer = {
+    name: string,
+    age: number,
+    goals: StringOrNumber
+}
+
+type UserId = StringOrNumber
+
+// Literal types
+let myName: 'amir'
+// myName = 'reza'
+let userFirstName: 'omid' | 'ghooli' | 'naser'
+
+
+// functions 
+
+const addNumbers = (a: number, b: number): number => {
+    return a + b
+}
+const logMsg = (message: any): void => {
+    console.log(message)
+}
+// type MathFunctions = (a: number, b: number) => number
+interface MathFunctions {
+    (a: number, b: number): number
+}
+let multiply: MathFunctions = function (a, b) {
+    return a * b
+}
+
+// Optional Parameter
+const addAll = (a: number, b: number, c?: number): number => {
+    if (typeof c !== 'undefined') {
+        return a + b + c
+    }
+    return a + b
+}
+// Default Parameter
+const sumAll = (a: number = 4, b: number, c: number = 2): number => {
+    return a + b + c
+}
+
+logMsg('its ok')
+logMsg(addAll(2, 6))
+logMsg(sumAll(undefined, 10))
+
+// Rest Parameter
+const total = (...numbers: number[]): number => {
+    return numbers.reduce((previous, current) => previous + current)
+}
+logMsg(total(4, 2, 3, 1, 9))
+
+// Never type
+const createError = (message: string): never => {
+    throw new Error(message)
+}
+
+const infinite = (): never => {
+    let i: number = 1
+    while (true) {
+        i++
+    }
+}
+
+const isNumberOrString = (value: number | string): string => {
+    if (typeof value === 'string') return 'string'
+    if (typeof value === 'number') return 'number'
+    return createError('That should never happend...')
+}

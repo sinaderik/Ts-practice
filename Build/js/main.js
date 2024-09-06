@@ -60,3 +60,63 @@ const greetGuitarist = (guitarist) => {
     return 'Hello';
 };
 console.log(greetGuitarist(guitaristOne));
+var Grade;
+(function (Grade) {
+    Grade[Grade["U"] = 1] = "U";
+    Grade[Grade["D"] = 2] = "D";
+    Grade[Grade["C"] = 3] = "C";
+    Grade[Grade["B"] = 4] = "B";
+    Grade[Grade["A"] = 5] = "A";
+})(Grade || (Grade = {}));
+console.log(Grade.U);
+console.log(Grade.A);
+// Literal types
+let myName;
+// myName = 'reza'
+let userFirstName;
+// functions 
+const addNumbers = (a, b) => {
+    return a + b;
+};
+const logMsg = (message) => {
+    console.log(message);
+};
+let multiply = function (a, b) {
+    return a * b;
+};
+// Optional Parameter
+const addAll = (a, b, c) => {
+    if (typeof c !== 'undefined') {
+        return a + b + c;
+    }
+    return a + b;
+};
+// Default Parameter
+const sumAll = (a = 4, b, c = 2) => {
+    return a + b + c;
+};
+logMsg('its ok');
+logMsg(addAll(2, 6));
+logMsg(sumAll(undefined, 10));
+// Rest Parameter
+const total = (...numbers) => {
+    return numbers.reduce((previous, current) => previous + current);
+};
+logMsg(total(4, 2, 3, 1, 9));
+// Never type
+const createError = (message) => {
+    throw new Error(message);
+};
+const infinite = () => {
+    let i = 1;
+    while (true) {
+        i++;
+    }
+};
+const isNumberOrString = (value) => {
+    if (typeof value === 'string')
+        return 'string';
+    if (typeof value === 'number')
+        return 'number';
+    return createError('That should never happend...');
+};
