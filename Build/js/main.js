@@ -24,3 +24,39 @@ carArray.unshift(45);
 carArray = stringArray;
 // its correct because carArray is union type of string , number , boolean
 // carArray=mixedData
+let test = [];
+let singer = [];
+singer.push('ebi');
+// Tuple
+//tuple is a special type of array where the types and the number of elements are fixed. 
+let tupleArray = ['naser', 456, false];
+let mixed = ['ghooli', 45, false];
+// its correct because carArray is union type of string , number , boolean
+mixed = tupleArray;
+// its incorrect because tupleArray requires 3 element(s) but source may have fewer
+// tupleArray=mixed
+let myObject;
+myObject = {};
+// its correct because array itself is object
+myObject = [];
+let actor = {
+    name: 'hamed',
+    age: 26,
+};
+const guitaristOne = {
+    // name: 'afshin',
+    active: true,
+    albums: ['album1', 4596, 3205]
+};
+const guitaristTwo = {
+    name: 'vahid',
+    active: false,
+    albums: ['albumOne', 8888, 2020]
+};
+const greetGuitarist = (guitarist) => {
+    if (guitarist.name) {
+        return `Hello ${guitarist.name.toUpperCase()} `;
+    }
+    return 'Hello';
+};
+console.log(greetGuitarist(guitaristOne));
