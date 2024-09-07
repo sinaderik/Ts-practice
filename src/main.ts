@@ -177,3 +177,31 @@ const isNumberOrString = (value: number | string): string => {
     if (typeof value === 'number') return 'number'
     return createError('That should never happend...')
 }
+
+// Type assertion
+// type MathFunctions = (a: number, b: number) => number
+// interface MathFunctions {
+//     (a: number, b: number): number
+// }
+
+
+type One = string
+type Two = number | string
+type Three = 'hello'
+let a: One = "something else"
+// let c:Three = a as Three  
+
+
+type AddOrConcat = (a: number, b: number, c: 'add' | 'concat') => number | string
+
+const addOrConcat: AddOrConcat = function (a, b, c) {
+    if (c === 'add') {
+        return a + b
+    }
+    return '' + a + b
+}
+
+let result: number = addOrConcat(7, 3, 'add') as number
+
+let img = document.getElementById("#mainImg") as HTMLImageElement
+img.src

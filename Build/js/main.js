@@ -120,3 +120,13 @@ const isNumberOrString = (value) => {
         return 'number';
     return createError('That should never happend...');
 };
+let a = "something else";
+const addOrConcat = function (a, b, c) {
+    if (c === 'add') {
+        return a + b;
+    }
+    return '' + a + b;
+};
+let result = addOrConcat(7, 3, 'add');
+let img = document.getElementById("#mainImg");
+img.src;
