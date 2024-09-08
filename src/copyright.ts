@@ -16,21 +16,43 @@ class Coder {
         this.language = language
     }
 
-    public getAge(){
+    public getAge() {
         console.log(`Hi, im ${this.age}`)
     }
 }
 
-class Programmer extends Coder{
-    
-    constructor(name: string, music: string, age: number, language: string){
-        super(name,music,age,language)
+class Programmer extends Coder {
+
+    constructor(name: string, music: string, age: number, language: string) {
+        super(name, music, age, language)
     }
-    public getLanguage(){
+
+    public getLanguage() {
         console.log(`I write ${this.language}`)
     }
 }
 const student = new Coder('sina', 'pop', 26, 'English')
-const teacher=new Programmer('reza','Jazz',37,'Javascript')
+const teacher = new Programmer('reza', 'Jazz', 37, 'Javascript')
 teacher.getAge()
 teacher.getLanguage()
+console.log('----------------------')
+interface Musician {
+    name: string
+    instrument: string
+    play(action: string): string
+}
+
+class MusicPlayer implements Musician{
+    name: string
+    instrument: string
+    constructor(name:string,instrument:string){
+        this.name=name
+        this.instrument=instrument
+    }
+    public play(action: string): string {
+        return `${this.name} ${action} the ${this.instrument}`
+    }
+}
+
+const guitarist=new MusicPlayer('amir','guitar')
+console.log(guitarist.play('strums'))
