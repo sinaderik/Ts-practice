@@ -38,6 +38,7 @@ class MusicPlayer {
 }
 const guitarist = new MusicPlayer('amir', 'guitar');
 console.log(guitarist.play('strums'));
+console.log('----------------------');
 class Actor {
     constructor(name) {
         this.name = name;
@@ -55,3 +56,27 @@ console.log(henrry.id);
 console.log(sara.id);
 console.log(jimmy.id);
 console.log(Actor.getActorId());
+console.log('----------------------');
+class Bands {
+    constructor() {
+        this.bandsName = [];
+    }
+    get data() {
+        return this.bandsName;
+    }
+    set data(values) {
+        if (Array.isArray(values) && values.every(value => typeof value === "string")) {
+            this.bandsName = values;
+            console.log('if is true');
+        }
+        else {
+            console.log('if is false');
+            throw new Error('there is a none string data in the array');
+        }
+    }
+}
+const myBand = new Bands();
+myBand.data = ['b one', 'b two'];
+console.log(myBand.data);
+myBand.data = [...myBand.data, 'b three'];
+console.log(myBand.data);
