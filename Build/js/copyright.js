@@ -38,3 +38,20 @@ class MusicPlayer {
 }
 const guitarist = new MusicPlayer('amir', 'guitar');
 console.log(guitarist.play('strums'));
+class Actor {
+    constructor(name) {
+        this.name = name;
+        this.id = ++Actor.actorId;
+    }
+    static getActorId() {
+        return Actor.actorId;
+    }
+}
+Actor.actorId = 0;
+const jimmy = new Actor('jimmy');
+const sara = new Actor('sara');
+const henrry = new Actor('henrry');
+console.log(henrry.id);
+console.log(sara.id);
+console.log(jimmy.id);
+console.log(Actor.getActorId());

@@ -42,17 +42,37 @@ interface Musician {
     play(action: string): string
 }
 
-class MusicPlayer implements Musician{
+class MusicPlayer implements Musician {
     name: string
     instrument: string
-    constructor(name:string,instrument:string){
-        this.name=name
-        this.instrument=instrument
+    constructor(name: string, instrument: string) {
+        this.name = name
+        this.instrument = instrument
     }
     public play(action: string): string {
         return `${this.name} ${action} the ${this.instrument}`
     }
 }
 
-const guitarist=new MusicPlayer('amir','guitar')
+const guitarist = new MusicPlayer('amir', 'guitar')
 console.log(guitarist.play('strums'))
+
+class Actor {
+    static actorId: number = 0
+    name: string
+    id: number
+    constructor(name: string) {
+        this.name = name
+        this.id = ++Actor.actorId
+    }
+    static getActorId(): number {
+        return Actor.actorId
+    }
+}
+const jimmy=new Actor('jimmy')
+const sara=new Actor('sara')
+const henrry=new Actor('henrry')
+console.log(henrry.id)
+console.log(sara.id)
+console.log(jimmy.id)
+console.log(Actor.getActorId())
