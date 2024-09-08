@@ -203,5 +203,5 @@ const addOrConcat: AddOrConcat = function (a, b, c) {
 
 let result: number = addOrConcat(7, 3, 'add') as number
 
-let img = document.getElementById("#mainImg") as HTMLImageElement
-img.src
+// let img = document.getElementById("#mainImg") as HTMLImageElement
+// img.src

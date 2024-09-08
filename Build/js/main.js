@@ -128,5 +128,5 @@ const addOrConcat = function (a, b, c) {
     return '' + a + b;
 };
 let result = addOrConcat(7, 3, 'add');
-let img = document.getElementById("#mainImg");
-img.src;
+// let img = document.getElementById("#mainImg") as HTMLImageElement
+// img.src
