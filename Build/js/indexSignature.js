@@ -25,3 +25,13 @@ for (const key in newStudent) {
 for (const key in newStudent) {
     console.log(`${key} : ${newStudent[key]}`);
 }
+console.log('----------------------');
+const logStudentKeys = (student, key) => {
+    console.log(`${key} : ${student[key]}`);
+};
+logStudentKeys(newStudent, 'city');
+const lastExam = {
+    math: 17,
+    programming: 20,
+    history: '15'
+};

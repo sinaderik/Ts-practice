@@ -35,12 +35,33 @@ const newStudent: Student = {
     city: 'tehran',
     code: 205
 }
-for(const key in newStudent){
+for (const key in newStudent) {
     console.log(`${key} : ${newStudent[key as keyof Student]}`)
 }
 
 // now lets say we dont have access to the interface and we dont know our object what type is it :
 
-for(const key in newStudent){
+for (const key in newStudent) {
     console.log(`${key} : ${newStudent[key as keyof typeof newStudent]}`)
 }
+
+console.log('----------------------')
+
+const logStudentKeys = (student: Student, key: keyof Student): void => {
+    console.log(`${key} : ${student[key]}`)
+}
+
+logStudentKeys(newStudent, 'city')
+
+
+// Record utitlty type is equvilant to => [key:string]: string | number
+type Lessons = 'math' | 'programming' | 'history'
+type Grades = Record<Lessons, number | string>
+
+const lastExam:Grades={
+    math:17,
+    programming:20,
+    history:'15'
+}
+
+
