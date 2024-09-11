@@ -99,4 +99,27 @@ const allUsers = [
     }
 ]
 
-console.log(getUsersProperty(allUsers,'name'))
+console.log(getUsersProperty(allUsers, 'name'))
+
+class Laptop<T> {
+    private laptopName: T
+    constructor(name: T) {
+        this.laptopName = name
+    }
+
+    get Name():T{
+        return this.laptopName
+    }
+    set Name(name:T){
+        this.laptopName=name
+    }
+}
+
+const asus=new Laptop('q550')
+const hp=new Laptop<string | number>('q550')
+asus.Name='F7404'
+// asus.Name=1012
+hp.Name='hp 707'
+hp.Name=4050
+console.log(asus.Name)
+console.log(hp.Name)

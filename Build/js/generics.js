@@ -84,3 +84,22 @@ const allUsers = [
     }
 ];
 console.log(getUsersProperty(allUsers, 'name'));
+class Laptop {
+    constructor(name) {
+        this.laptopName = name;
+    }
+    get Name() {
+        return this.laptopName;
+    }
+    set Name(name) {
+        this.laptopName = name;
+    }
+}
+const asus = new Laptop('q550');
+const hp = new Laptop('q550');
+asus.Name = 'F7404';
+// asus.Name=1012
+hp.Name = 'hp 707';
+hp.Name = 4050;
+console.log(asus.Name);
+console.log(hp.Name);
